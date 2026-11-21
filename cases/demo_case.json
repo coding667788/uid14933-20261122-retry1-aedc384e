@@ -1,0 +1,314 @@
+{
+  "case_id": "demo-attribution-001",
+  "default_event_stage": "capture",
+  "catalog": {
+    "pinned_version": "v1",
+    "versions": [
+      {
+        "version": "v1",
+        "released_at": "2026-01-15",
+        "note": "发行批次与保管链初版登记",
+        "copies": [
+          {
+            "copy_id": "B1-001",
+            "batch": "B1",
+            "recipient": "R-alpha",
+            "codeword": {
+              "0": "a",
+              "1": "b",
+              "2": "c",
+              "3": "d",
+              "4": "e"
+            },
+            "missing": [
+              4
+            ]
+          },
+          {
+            "copy_id": "B1-002",
+            "batch": "B1",
+            "recipient": "R-bravo",
+            "codeword": {
+              "0": "a",
+              "1": "b",
+              "2": "x",
+              "3": "d",
+              "4": "e"
+            },
+            "missing": []
+          },
+          {
+            "copy_id": "B2-001",
+            "batch": "B2",
+            "recipient": "R-charlie",
+            "codeword": {
+              "0": "a",
+              "1": "b",
+              "2": "c",
+              "3": "d",
+              "4": "e"
+            },
+            "missing": []
+          }
+        ],
+        "custody": [
+          {
+            "copy_id": "B1-001",
+            "stages": [
+              {
+                "stage": "capture",
+                "recipient": "R-alpha"
+              },
+              {
+                "stage": "storage",
+                "recipient": "R-keeper-1"
+              },
+              {
+                "stage": "court",
+                "recipient": "R-court-1"
+              }
+            ]
+          },
+          {
+            "copy_id": "B1-002",
+            "stages": [
+              {
+                "stage": "capture",
+                "recipient": "R-bravo"
+              },
+              {
+                "stage": "storage",
+                "recipient": "R-keeper-2"
+              },
+              {
+                "stage": "court",
+                "recipient": "R-court-1"
+              }
+            ]
+          },
+          {
+            "copy_id": "B2-001",
+            "stages": [
+              {
+                "stage": "capture",
+                "recipient": "R-charlie"
+              },
+              {
+                "stage": "storage",
+                "recipient": "R-keeper-1"
+              },
+              {
+                "stage": "court",
+                "recipient": "R-court-2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "version": "v2",
+        "released_at": "2026-07-01",
+        "note": "保管补录：拆分 storage 阶段（历史结论仍以 v1 视图为准）",
+        "copies": [
+          {
+            "copy_id": "B1-001",
+            "batch": "B1",
+            "recipient": "R-alpha",
+            "codeword": {
+              "0": "a",
+              "1": "b",
+              "2": "c",
+              "3": "d",
+              "4": "e"
+            },
+            "missing": [
+              4
+            ]
+          },
+          {
+            "copy_id": "B1-002",
+            "batch": "B1",
+            "recipient": "R-bravo",
+            "codeword": {
+              "0": "a",
+              "1": "b",
+              "2": "x",
+              "3": "d",
+              "4": "e"
+            },
+            "missing": []
+          },
+          {
+            "copy_id": "B2-001",
+            "batch": "B2",
+            "recipient": "R-charlie",
+            "codeword": {
+              "0": "a",
+              "1": "b",
+              "2": "c",
+              "3": "d",
+              "4": "e"
+            },
+            "missing": []
+          }
+        ],
+        "custody": [
+          {
+            "copy_id": "B1-001",
+            "stages": [
+              {
+                "stage": "capture",
+                "recipient": "R-alpha"
+              },
+              {
+                "stage": "storage-in",
+                "recipient": "R-keeper-1"
+              },
+              {
+                "stage": "storage-out",
+                "recipient": "R-vault"
+              },
+              {
+                "stage": "court",
+                "recipient": "R-court-1"
+              }
+            ]
+          },
+          {
+            "copy_id": "B1-002",
+            "stages": [
+              {
+                "stage": "capture",
+                "recipient": "R-bravo"
+              },
+              {
+                "stage": "storage-in",
+                "recipient": "R-keeper-2"
+              },
+              {
+                "stage": "storage-out",
+                "recipient": "R-vault"
+              },
+              {
+                "stage": "court",
+                "recipient": "R-court-1"
+              }
+            ]
+          },
+          {
+            "copy_id": "B2-001",
+            "stages": [
+              {
+                "stage": "capture",
+                "recipient": "R-charlie"
+              },
+              {
+                "stage": "storage-in",
+                "recipient": "R-keeper-1"
+              },
+              {
+                "stage": "storage-out",
+                "recipient": "R-vault"
+              },
+              {
+                "stage": "court",
+                "recipient": "R-court-2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "fragments": [
+    {
+      "fragment_id": "F-01",
+      "batch_candidates": [
+        "B1",
+        "B2"
+      ],
+      "candidate_copies": [
+        "B1-001",
+        "B1-002",
+        "B2-001"
+      ],
+      "event_stage": "capture",
+      "observations": [
+        {
+          "position": 0,
+          "symbol": "a",
+          "erased": false,
+          "confidence": "high",
+          "cost": 0
+        },
+        {
+          "position": 1,
+          "symbol": "b",
+          "erased": false,
+          "confidence": "high",
+          "cost": 0
+        },
+        {
+          "position": 2,
+          "symbol": "k",
+          "erased": false,
+          "confidence": "low",
+          "cost": 5
+        },
+        {
+          "position": 3,
+          "symbol": "d",
+          "erased": false,
+          "confidence": "high",
+          "cost": 0
+        },
+        {
+          "position": 4,
+          "erased": true,
+          "confidence": "low",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "fragment_id": "F-02",
+      "batch_candidates": [
+        "B1"
+      ],
+      "candidate_copies": [
+        "B1-001",
+        "B1-002"
+      ],
+      "event_stage": "storage",
+      "observations": [
+        {
+          "position": 0,
+          "symbol": "a",
+          "erased": false,
+          "confidence": "high",
+          "cost": 0
+        },
+        {
+          "position": 2,
+          "symbol": "k",
+          "erased": false,
+          "confidence": "low",
+          "cost": 5
+        }
+      ]
+    }
+  ],
+  "same_source_pairs": [
+    [
+      "F-01",
+      "F-02"
+    ]
+  ],
+  "different_source_pairs": [],
+  "per_fragment_cost_cap": 10,
+  "total_budget": 12,
+  "batch_recipient_caps": {
+    "B1": 2,
+    "B2": 1
+  }
+}
